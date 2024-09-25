@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
+import Home from "./Home";
 
 function GerarRelatorio({ setIsAuthenticaded }) {
   const navigate = useNavigate();
@@ -9,19 +10,6 @@ function GerarRelatorio({ setIsAuthenticaded }) {
     <>
       <div className="container">
         <h1>Gerar Relatório</h1>
-
-        <div className="tabs">
-          <a href="/telaPrincipal.html" className="tab-button">
-            Home
-          </a>
-          <a href="/contratosCard.html" className="tab-button">
-            Contratos
-          </a>
-          <a href="#" className="tab-button">
-            Relatórios
-          </a>
-        </div>
-
         <div className="form">
           <form>
             <label htmlFor="contrato">Selecione o Contrato</label>

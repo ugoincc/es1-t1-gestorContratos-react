@@ -71,9 +71,9 @@ function CriarContrato() {
           <label htmlFor="anexos">Anexos de Documentos</label>
           <input type="file" id="anexos" className="anexos" multiple />
 
-          <a href="/telaPrincipal.html" className="tab-button">
+          <button onClick={() => handleNavigation("/")} className="tab-button">
             Enviar
-          </a>
+          </button>
         </form>
       </div>
     </>

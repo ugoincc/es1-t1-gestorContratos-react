@@ -39,25 +39,7 @@ function Home() {
             Logout
           </button>
         </div>
-
-        <section className="grid-section contratos" id="contratos">
-          <h3>Contratos Recentes</h3>
-          <div className="contract-list">
-            <div className="contract-item">Contrato de Trabalho</div>
-            <div className="contract-item">Contrato de Fornecedor</div>
-            <div className="contract-item">Contrato de Cliente</div>
-            <div className="contract-item">Contrato de Seguro</div>
-            <div className="contract-item">Contrato de Trabalho</div>
-            <div className="contract-item">Contrato de Fornecedor</div>
-            <div className="contract-item">Contrato de Cliente</div>
-            <div className="contract-item">Contrato de Trabalho</div>
-            <div className="contract-item">Contrato de Fornecedor</div>
-            <div className="contract-item">Contrato de Cliente</div>
-          </div>
-        </section>
       </div>
-
-      <div></div>
     </>
   );
 }
