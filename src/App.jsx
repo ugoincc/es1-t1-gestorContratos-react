@@ -8,52 +8,22 @@ import {
   CriarContrato,
 } from "./screens";
 import { ProtectedRoute } from "./components";
+import { AuthProvider } from "./resources/useAuth";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   return (
-    <Router>
-      <Routes>
-        <Route
-          path="/login"
-          element={<Login setIsAuthenticated={setIsAuthenticated} />}
-        />
-        <Route
-          path="/"
-          element={
-            <ProtectedRoute element={Home} isAuthenticated={isAuthenticated} />
-          }
-        />
-        <Route
-          path="/gerarRelatorio"
-          element={
-            <ProtectedRoute
-              element={GerarRelatorio}
-              isAuthenticated={isAuthenticated}
-            />
-          }
-        />
-        <Route
-          path="/gerarRelatorio"
-          element={
-            <ProtectedRoute
-              element={GerarRelatorio}
-              isAuthenticated={isAuthenticated}
-            />
-          }
-        />
-        <Route
-          path="/criarContrato"
-          element={
-            <ProtectedRoute
-              element={CriarContrato}
-              isAuthenticated={isAuthenticated}
-            />
-          }
-        />
-      </Routes>
-    </Router>
+    <div id="app">
+      <AuthProvider>
+        <Router>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/gerarRelatorio" element={<GerarRelatorio />} />
+            <Route path="/criarContrato" element={<CriarContrato />} />
+          </Routes>
+        </Router>
+      </AuthProvider>
+    </div>
   );
 }
 

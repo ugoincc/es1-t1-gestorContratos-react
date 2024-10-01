@@ -1,9 +1,16 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
+import { useAuth } from "../resources/useAuth";
 
 function Home() {
   const navigate = useNavigate();
+  const { logout } = useAuth();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
 
   const handleNavigation = (path) => {
     navigate(path);
@@ -32,10 +39,7 @@ function Home() {
             Novo Contrato
           </button>
 
-          <button
-            onClick={() => handleNavigation("/login")}
-            className="tab-button"
-          >
+          <button onClick={handleLogout} className="tab-button">
             Logout
           </button>
         </div>

@@ -1,10 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
-import Home from "./Home";
+import { useAuth } from "../resources/useAuth";
 
 function GerarRelatorio({ setIsAuthenticaded }) {
   const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
 
   return (
     <>
@@ -35,7 +39,11 @@ function GerarRelatorio({ setIsAuthenticaded }) {
             <label htmlFor="periodo-final">Período Final</label>
             <input type="date" id="periodo-final" name="periodo-final" />
 
-            <button type="submit" className="button">
+            <button
+              onClick={() => handleNavigation("/")}
+              type="submit"
+              className="button"
+            >
               Gerar Relatório
             </button>
           </form>

@@ -3,6 +3,12 @@ import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
 
 function CriarContrato() {
+  const navigate = useNavigate();
+
+  const handleNavigation = (path) => {
+    navigate(path);
+  };
+
   return (
     <>
       <div className="container">

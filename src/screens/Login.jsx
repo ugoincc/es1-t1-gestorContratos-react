@@ -1,8 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
+import { useAuth } from "../resources/useAuth";
 
-function Login({ setIsAuthenticated }) {
+function Login() {
+  const { setIsAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   const handleLogin = () => {
@@ -12,6 +14,8 @@ function Login({ setIsAuthenticated }) {
 
   return (
     <>
+      <div className="bg-image"></div>
+
       <div className="container">
         <div className="login-container" id="login-container">
           <h2>Login</h2>
@@ -23,7 +27,11 @@ function Login({ setIsAuthenticated }) {
             <button onClick={handleLogin} type="submit" className="button">
               Entrar
             </button>
-            <a href="#" className="forgot-password">
+            <a
+              style={{ marginTop: "1rem", color: "black" }}
+              href="#"
+              className="forgot-password"
+            >
               Esqueci minha senha
             </a>
           </form>
