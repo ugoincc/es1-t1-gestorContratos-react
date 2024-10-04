@@ -1,28 +1,35 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
-  Login,
-  Home,
-  GerarRelatorio,
-  ContratoCard,
-  CriarContrato,
-} from "./screens";
-import { ProtectedRoute } from "./components";
-import { AuthProvider } from "./resources/useAuth";
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import Content from "./components/Content";
+import Login from "./screens/Login";
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
   return (
-    <div id="app">
-      <AuthProvider>
-        <Router>
+    <div className="app">
+      <Router>
+        {isLoggedIn ? (
+          <>
+            <Sidebar setIsLoggedIn={setIsLoggedIn} />
+            <Content />
+          </>
+        ) : (
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/gerarRelatorio" element={<GerarRelatorio />} />
-            <Route path="/criarContrato" element={<CriarContrato />} />
+            <Route path="*" element={<Login onLogin={handleLogin} />} />
           </Routes>
-        </Router>
-      </AuthProvider>
+        )}
+      </Router>
     </div>
   );
 }

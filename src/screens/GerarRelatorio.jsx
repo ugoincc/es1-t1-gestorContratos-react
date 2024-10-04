@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
-import { useAuth } from "../resources/useAuth";
 
 function GerarRelatorio({ setIsAuthenticaded }) {
   const navigate = useNavigate();
