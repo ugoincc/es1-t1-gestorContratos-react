@@ -81,7 +81,7 @@ function CriarContrato() {
           <input type="file" id="anexos" className="anexos" multiple />
         </div>
       </form>
-      <button onClick={() => handleNavigation("/")} className="tab-button">
+      <button onClick={() => handleNavigation("/")} className="button">
         Enviar
       </button>
     </div>

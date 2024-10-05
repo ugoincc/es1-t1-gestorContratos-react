@@ -21,8 +21,10 @@ function App() {
       <Router>
         {isLoggedIn ? (
           <>
-            <Sidebar setIsLoggedIn={setIsLoggedIn} />
-            <Content />
+            <div className="gridprincipal">
+              <Sidebar id="gridsidebar" setIsLoggedIn={setIsLoggedIn} />
+              <Content id="gridcontent" />
+            </div>
           </>
         ) : (
           <Routes>
