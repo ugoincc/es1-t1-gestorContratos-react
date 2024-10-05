@@ -7,9 +7,8 @@ const Login = ({ onLogin }) => {
 
   const handleLoginClick = (e) => {
     e.preventDefault();
-    // lógica de autenticação aqui
     onLogin();
-    navigate("/gerarRelatorio");
+    navigate("/home");
   };
 
   return (

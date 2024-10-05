@@ -4,6 +4,7 @@ import EmailIcon from "@mui/icons-material/Email";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
 import AssessmentIcon from "@mui/icons-material/Assessment";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 export const SidebarData = [
   {
@@ -30,5 +31,10 @@ export const SidebarData = [
     title: "Relatórios",
     icon: <AssessmentIcon />,
     link: "/gerarRelatorio",
+  },
+  {
+    title: "Logout",
+    icon: <LogoutIcon />,
+    link: "/logout",
   },
 ];

@@ -12,6 +12,10 @@ const Sidebar = ({ setIsLoggedIn }) => {
   };
 
   const handleNavigation = (path) => {
+    if (path == "/logout") {
+      handleLogout();
+      return;
+    }
     navigate(path);
   };
 
@@ -32,29 +36,6 @@ const Sidebar = ({ setIsLoggedIn }) => {
         })}
       </ul>
     </div>
-
-    /*
-    <div className="sidebar">
-      <button onClick={() => handleNavigation("/")} className="sidebar-button">
-        Home
-      </button>
-      <button
-        onClick={() => handleNavigation("/gerarRelatorio")}
-        className="sidebar-button"
-      >
-        Relatórios
-      </button>
-      <button
-        onClick={() => handleNavigation("/criarContrato")}
-        className="sidebar-button"
-      >
-        Novo Contrato
-      </button>
-      <button onClick={handleLogout} className="sidebar-button">
-        Logout
-      </button>
-    </div>
-    */
   );
 };
 
