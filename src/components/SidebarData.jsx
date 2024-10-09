@@ -25,7 +25,7 @@ export const SidebarData = [
   {
     title: "Contratos",
     icon: <FindInPageIcon />,
-    link: "/criarContrato",
+    link: "/contratos",
   },
   {
     title: "Relatórios",

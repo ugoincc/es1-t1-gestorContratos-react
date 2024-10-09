@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
+import BasicGrid from "../components/MUI/BasicGrid";
 
 function CriarContrato() {
   const navigate = useNavigate();
@@ -81,8 +82,8 @@ function CriarContrato() {
           <input type="file" id="anexos" className="anexos" multiple />
         </div>
       </form>
-      <button onClick={() => handleNavigation("/")} className="button">
-        Enviar
+      <button onClick={() => handleNavigation("/contratos")} className="button">
+        Voltar
       </button>
     </div>
   );

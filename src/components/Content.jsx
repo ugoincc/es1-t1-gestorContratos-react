@@ -4,6 +4,7 @@ import GerarRelatorio from "../screens/GerarRelatorio";
 import CriarContrato from "../screens/CriarContrato";
 import Login from "../screens/Login";
 import Elements from "../screens/Elements";
+import { Contratos } from "../screens";
 
 const Content = () => {
   return (
@@ -13,6 +14,7 @@ const Content = () => {
         <Route path="/gerarRelatorio" element={<GerarRelatorio />} />
         <Route path="/criarContrato" element={<CriarContrato />} />
         <Route path="/eleTestes" element={<Elements />} />
+        <Route path="/contratos" element={<Contratos />} />
       </Routes>
     </div>
   );
