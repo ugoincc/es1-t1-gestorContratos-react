@@ -1,1 +1,2 @@
-export { default as ProtectedRoute } from "./ProtRoute";
+export { default as Sidebar } from "./Sidebar";
+export { default as Content } from "./Content";

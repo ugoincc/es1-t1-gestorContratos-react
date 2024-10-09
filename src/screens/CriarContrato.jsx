@@ -10,10 +10,10 @@ function CriarContrato() {
   };
 
   return (
-    <>
-      <div className="container">
-        <h1>Novo Contrato</h1>
-        <form>
+    <div className="container">
+      <h1>Novo Contrato</h1>
+      <form className="form-grid">
+        <div className="form-column">
           <label htmlFor="titulo">Título do Contrato</label>
           <input
             type="text"
@@ -30,10 +30,11 @@ function CriarContrato() {
             placeholder="João Silva, Maria Souza"
           />
 
-          <label htmlFor="data">Data de Início</label>
-          <input type="date" id="data" className="data" />
-          <label htmlFor="data">Data de Fim</label>
-          <input type="date" id="data" className="data" />
+          <label htmlFor="data-inicio">Data de Início</label>
+          <input type="date" id="data-inicio" className="data" />
+
+          <label htmlFor="data-fim">Data de Fim</label>
+          <input type="date" id="data-fim" className="data" />
 
           <label htmlFor="tipo">Tipo de Contrato</label>
           <select id="tipo" className="tipo">
@@ -42,7 +43,9 @@ function CriarContrato() {
             <option value="locacao">Locação</option>
             <option value="outro">Outro</option>
           </select>
+        </div>
 
+        <div className="form-column">
           <label htmlFor="termos">Descrição do Contrato</label>
           <textarea
             id="termos"
@@ -76,13 +79,12 @@ function CriarContrato() {
 
           <label htmlFor="anexos">Anexos de Documentos</label>
           <input type="file" id="anexos" className="anexos" multiple />
-
-          <button onClick={() => handleNavigation("/")} className="tab-button">
-            Enviar
-          </button>
-        </form>
-      </div>
-    </>
+        </div>
+      </form>
+      <button onClick={() => handleNavigation("/")} className="button">
+        Enviar
+      </button>
+    </div>
   );
 }
 
