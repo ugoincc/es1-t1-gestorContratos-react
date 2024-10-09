@@ -43,3 +43,7 @@
 .row #title {
   flex: 70%;
 }
+
+.Button {
+  color: black;
+}

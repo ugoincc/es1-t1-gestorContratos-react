@@ -45,12 +45,12 @@ body {
   margin: 1rem;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  height: 93%;
+  height: 90%;
 }
 
 .container #login-container {
   height: 35vh;
-  width: 20vw;
+  width: 35vw;
   padding: 1rem;
   position: relative;
   top: -10px;
