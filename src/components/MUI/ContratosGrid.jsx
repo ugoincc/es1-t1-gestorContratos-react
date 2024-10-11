@@ -21,7 +21,7 @@ const StyledBox = styled(Box)({
   },
 });
 
-export default function BasicGrid({ items }) {
+export default function ContratosGrid({ items }) {
   return (
     <StyledBox
       sx={{

@@ -1,8 +1,9 @@
 import React from "react";
 import "../styles/styles.css";
 import AddButton from "../components/MUI/AddButton";
-import BasicGrid from "../components/MUI/BasicGrid";
+import ContratosGrid from "../components/MUI/ContratosGrid";
 import ContractCard from "../components/ContratoCard";
+import SearchAppBar from "../components/MUI/SearchAppBar";
 
 function Contratos() {
   const contracts = [
@@ -46,9 +47,9 @@ function Contratos() {
 
   return (
     <>
-      <div className="container" id="contratos">
-        <h1>Contratos</h1>
-        <BasicGrid items={gridItems} />
+      <div className="container">
+        <SearchAppBar pagename={"Contratos"} />
+        <ContratosGrid items={gridItems} />
         <AddButton />
       </div>
     </>

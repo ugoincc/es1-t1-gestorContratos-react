@@ -15,7 +15,7 @@ export default function AddButton() {
   };
   return (
     <Fab
-      sx={{ marginTop: 4 }}
+      sx={{ backgroundColor: "#2f4050", marginTop: 4 }}
       onClick={() => handleNavigation("/criarContrato")}
       color="primary"
       aria-label="add"

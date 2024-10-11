@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
-import BasicGrid from "../components/MUI/BasicGrid";
+import ContratosGrid from "../components/MUI/ContratosGrid";
 
 function CriarContrato() {
   const navigate = useNavigate();

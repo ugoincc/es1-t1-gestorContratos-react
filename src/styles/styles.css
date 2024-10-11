@@ -36,6 +36,18 @@ body {
   place-items: center;
 }
 
+.contratos-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.AddButton {
+  position: absolute;
+  bottom: 20px;
+  right: 300px;
+}
+
 .container {
   background-color: #fff;
   display: flex;
@@ -46,6 +58,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   height: 90%;
+  position: relative;
 }
 
 .container #login-container {
