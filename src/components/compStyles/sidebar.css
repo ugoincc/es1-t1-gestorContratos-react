@@ -1,5 +1,6 @@
 .Sidebar {
   height: 100vh;
+  min-width: 150px;
   width: 200px;
   background-color: #2f4050;
   overflow-y: auto;
@@ -42,8 +43,4 @@
 
 .row #title {
   flex: 70%;
-}
-
-.Button {
-  color: black;
 }
