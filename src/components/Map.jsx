@@ -1,4 +1,5 @@
 import React from "react";
+import MarkerClusterGroup from "react-leaflet-cluster";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./compStyles/map.css";
@@ -38,18 +39,20 @@ function Map({ contratos, coordenadas }) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {contratosArray.map((contrato, index) => (
-        <Marker key={index} position={[contrato.cordx, contrato.cordy]}>
-          <Popup>
-            <div>
-              <h3>{contrato.nome}</h3>
-              <p>{contrato.contratante}</p>
-              <p>{contrato.tipoContrato}</p>
-              <p>Progresso: {contrato.progresso}</p>
-            </div>
-          </Popup>
-        </Marker>
-      ))}
+      <MarkerClusterGroup>
+        {contratosArray.map((contrato, index) => (
+          <Marker key={index} position={[contrato.cordx, contrato.cordy]}>
+            <Popup>
+              <div>
+                <h3>{contrato.nome}</h3>
+                <p>{contrato.contratante}</p>
+                <p>{contrato.tipoContrato}</p>
+                <p>Progresso: {contrato.progresso}</p>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
+      </MarkerClusterGroup>
 
       <SetViewOnClick coordenadas={focus} zoom={zoom} />
     </MapContainer>
