@@ -1,22 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
-import FloatingActionButtons from "../components/MUI/FloatingActionsButtons";
-import TextButtons from "../components/MUI/TextButtons";
+import DenseAppBar from "../components/MUI/DenseAppBar";
+import DataTable from "../components/MUI/DataTable";
 
-function Elements({ setIsAuthenticaded }) {
-  const navigate = useNavigate();
-
-  const handleNavigation = (path) => {
-    navigate(path);
-  };
-
+function Elements({}) {
   return (
     <>
       <div className="container">
-        <h1>Testes de elementos MUI</h1>
-        <FloatingActionButtons />
-        <TextButtons />
+        <DenseAppBar pagename="Testes de elementos" />
       </div>
     </>
   );

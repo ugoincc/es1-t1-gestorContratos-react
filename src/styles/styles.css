@@ -36,6 +36,12 @@ body {
   place-items: center;
 }
 
+.contratos-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .container {
   background-color: #fff;
   display: flex;
@@ -45,7 +51,9 @@ body {
   margin: 1rem;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  height: 90%;
+  height: 91%;
+  width: 95%;
+  position: relative;
 }
 
 .container #login-container {
@@ -115,4 +123,20 @@ textarea {
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+}
+
+.contratos-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.contratos-content-lower {
+  display: flex;
+  flex-direction: row;
+  height: 83vh;
+  width: 100%;
+}
+
+.contratosCard {
+  width: 100;
 }
