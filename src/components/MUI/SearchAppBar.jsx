@@ -36,22 +36,19 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
   color: "inherit",
-  width: "100%",
+  width: "380px",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
     paddingLeft: `calc(1em + ${theme.spacing(4)})`,
     transition: theme.transitions.create("width"),
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
-    },
   },
 }));
 
-export default function SearchAppBar({ pagename }) {
+export default function SearchAppBar({ pagename, onSearchChange }) {
+  const handleInputChange = (event) => {
+    onSearchChange(event.target.value);
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -87,7 +84,8 @@ export default function SearchAppBar({ pagename }) {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Pesquisar..."
+              placeholder="Pesquisar contratos"
+              onChange={handleInputChange}
               inputProps={{ "aria-label": "search" }}
             />
           </Search>

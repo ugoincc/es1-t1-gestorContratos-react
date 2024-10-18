@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles/styles.css";
 import AddButton from "../components/MUI/AddButton";
 import ContractCard from "../components/ContratoCard";
 import SearchAppBar from "../components/MUI/SearchAppBar";
-import Map from "../components/Map";
 
 function Contratos() {
   const contracts = [
@@ -17,7 +16,7 @@ function Contratos() {
       icone: "a",
       cordx: -25.4912437,
       cordy: -54.5767287,
-      progresso: "90%",
+      progresso: "20%",
     },
     {
       id: 2,
@@ -29,7 +28,7 @@ function Contratos() {
       icone: "s",
       cordx: -25.4876214,
       cordy: -54.5789732,
-      progresso: "90%",
+      progresso: "30%",
     },
     {
       id: 3,
@@ -41,7 +40,7 @@ function Contratos() {
       icone: "s",
       cordx: -25.4932369,
       cordy: -54.5638421,
-      progresso: "90%",
+      progresso: "50%",
     },
     {
       id: 4,
@@ -57,14 +56,33 @@ function Contratos() {
     },
   ];
 
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredContracts = contracts.filter((contract) => {
+    const search = searchTerm.toLowerCase();
+    return (
+      contract.nome.toLowerCase().includes(search) ||
+      contract.contratante.toLowerCase().includes(search) ||
+      contract.tipoContrato.toLowerCase().includes(search) ||
+      contract.dataInicio.includes(search) ||
+      contract.dataFim.includes(search) ||
+      contract.progresso.toLowerCase().includes(search)
+    );
+  });
+  const handleSearchChange = (newSearchTerm) => {
+    setSearchTerm(newSearchTerm);
+  };
+
   return (
     <>
       <div className="container">
         <div className="contratos-content">
-          <SearchAppBar pagename={"Mapeamento de Contratos"} />
+          <SearchAppBar
+            pagename={"Mapeamento de Contratos"}
+            onSearchChange={handleSearchChange}
+          />
           <div className="contratos-content-lower">
-            <ContractCard contratos={contracts} />
-            <Map contratos={contracts} />
+            <ContractCard contratos={filteredContracts} />
           </div>
         </div>
       </div>

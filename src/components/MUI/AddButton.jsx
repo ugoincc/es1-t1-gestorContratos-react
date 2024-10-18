@@ -17,7 +17,7 @@ export default function AddButton() {
     <Fab
       sx={{
         position: "absolute",
-        right: "40px",
+        right: "50px",
         bottom: "60px",
         backgroundColor: "#2f4050",
       }}
