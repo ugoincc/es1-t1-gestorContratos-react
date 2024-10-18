@@ -42,12 +42,6 @@ body {
   align-items: center;
 }
 
-.AddButton {
-  position: absolute;
-  bottom: 20px;
-  right: 300px;
-}
-
 .container {
   background-color: #fff;
   display: flex;
@@ -57,7 +51,8 @@ body {
   margin: 1rem;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  height: 90%;
+  height: 91%;
+  width: 95%;
   position: relative;
 }
 
@@ -130,6 +125,14 @@ textarea {
   cursor: pointer;
 }
 
-.leaflet-container {
-  height: 100vh;
+.contratos-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.contratos-content-lower {
+  display: flex;
+  flex-direction: row;
+  min-width: 85vw;
+  min-height: 83vh;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
-import Map from "../components/Map";
+import AddButton from "../components/MUI/AddButton";
 
 function Elements({ setIsAuthenticaded }) {
   const navigate = useNavigate();
@@ -14,7 +14,7 @@ function Elements({ setIsAuthenticaded }) {
     <>
       <div className="container">
         <h1>Testes de elementos</h1>
-        <Map />
+        <AddButton />
       </div>
     </>
   );

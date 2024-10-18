@@ -17,8 +17,8 @@ export default function AddButton() {
     <Fab
       sx={{
         position: "absolute",
-        right: "20px",
-        bottom: "20px",
+        right: "40px",
+        bottom: "60px",
         backgroundColor: "#2f4050",
       }}
       onClick={() => handleNavigation("/criarContrato")}
