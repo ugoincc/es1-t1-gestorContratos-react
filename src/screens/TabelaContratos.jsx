@@ -1,11 +1,9 @@
 import React from "react";
 import "../styles/styles.css";
-import AddButton from "../components/MUI/AddButton";
-import ContractCard from "../components/ContratoCard";
-import SearchAppBar from "../components/MUI/SearchAppBar";
-import Map from "../components/Map";
+import DenseAppBar from "../components/MUI/DenseAppBar";
+import DataTable from "../components/MUI/DataTable";
 
-function Contratos() {
+function TabelaContratos() {
   const contracts = [
     {
       id: 1,
@@ -18,6 +16,7 @@ function Contratos() {
       cordx: -25.4912437,
       cordy: -54.5767287,
       progresso: "90%",
+      ativo: false,
     },
     {
       id: 2,
@@ -29,7 +28,8 @@ function Contratos() {
       icone: "s",
       cordx: -25.4876214,
       cordy: -54.5789732,
-      progresso: "90%",
+      progresso: "50%",
+      ativo: false,
     },
     {
       id: 3,
@@ -41,7 +41,8 @@ function Contratos() {
       icone: "s",
       cordx: -25.4932369,
       cordy: -54.5638421,
-      progresso: "90%",
+      progresso: "70%",
+      ativo: true,
     },
     {
       id: 4,
@@ -53,24 +54,19 @@ function Contratos() {
       icone: "s",
       cordx: -25.4843837,
       cordy: -54.566931,
-      progresso: "90%",
+      progresso: "10%",
+      ativo: true,
     },
   ];
 
   return (
     <>
       <div className="container">
-        <div className="contratos-content">
-          <SearchAppBar pagename={"Mapeamento de Contratos"} />
-          <div className="contratos-content-lower">
-            <ContractCard contratos={contracts} />
-            <Map contratos={contracts} />
-          </div>
-        </div>
+        <DenseAppBar pagename="Tabela de Contratos" />
+        <DataTable rows={contracts} />
       </div>
-      <AddButton />
     </>
   );
 }
 
-export default Contratos;
+export default TabelaContratos;

@@ -7,6 +7,7 @@ import Elements from "../screens/Elements";
 import DashboardContratos from "../screens/DashboardContratos";
 import { Contratos } from "../screens";
 import Home from "../screens/Home";
+import TabelaContratos from "../screens/TabelaContratos";
 
 const Content = () => {
   return (
@@ -19,6 +20,7 @@ const Content = () => {
         <Route path="/eleTestes" element={<Elements />} />
         <Route path="/contratos" element={<Contratos />} />
         <Route path="/dashboard" element={<DashboardContratos />} />
+        <Route path="/tabelaContratos" element={<TabelaContratos />} />
       </Routes>
     </div>
   );

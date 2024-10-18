@@ -1,20 +1,13 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
-import AddButton from "../components/MUI/AddButton";
+import DenseAppBar from "../components/MUI/DenseAppBar";
+import DataTable from "../components/MUI/DataTable";
 
-function Elements({ setIsAuthenticaded }) {
-  const navigate = useNavigate();
-
-  const handleNavigation = (path) => {
-    navigate(path);
-  };
-
+function Elements({}) {
   return (
     <>
       <div className="container">
-        <h1>Testes de elementos</h1>
-        <AddButton />
+        <DenseAppBar pagename="Testes de elementos" />
       </div>
     </>
   );

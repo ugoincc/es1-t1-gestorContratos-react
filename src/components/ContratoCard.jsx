@@ -5,12 +5,30 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Avatar from "@mui/material/Avatar";
 import { useTheme } from "@mui/material/styles";
-import useMediaQuery from "@mui/material/useMediaQuery";
 import { styled } from "@mui/system";
+import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
 
 export default function ContractCard({ contratos }) {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
+  const [open, setOpen] = React.useState(false);
+  const [selectedContrato, setSelectedContrato] = React.useState(null);
+
+  const handleOpen = (contrato) => {
+    setSelectedContrato(contrato);
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    setSelectedContrato(null);
+  };
 
   const StyledBox = styled(Box)({
     maxHeight: "83vh",
@@ -38,7 +56,9 @@ export default function ContractCard({ contratos }) {
             padding: 2,
             margin: 1,
             alignItems: "center",
+            cursor: "pointer",
           }}
+          onClick={() => handleOpen(contrato)}
         >
           <Avatar
             src={contrato.icone}
@@ -46,20 +66,9 @@ export default function ContractCard({ contratos }) {
             sx={{
               width: 56,
               height: 56,
-              marginRight: isSmallScreen ? 0 : 2,
-              marginBottom: isSmallScreen ? 2 : 0,
             }}
           />
-          <Box
-            sx={{
-              borderRadius: 2,
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              height: "auto",
-              width: isSmallScreen ? "100%" : 500,
-            }}
-          >
+          <Box>
             <CardContent>
               <Typography variant="h6" component="div">
                 {contrato.nome}
@@ -80,6 +89,43 @@ export default function ContractCard({ contratos }) {
           </Box>
         </Card>
       ))}
+
+      <Dialog open={open} onClose={handleClose} fullWidth>
+        <DialogTitle>Detalhes do Contrato</DialogTitle>
+        <DialogContent>
+          {selectedContrato && (
+            <>
+              <Typography variant="h6">
+                Nome: {selectedContrato.nome}
+              </Typography>
+              <Typography>
+                Contratante: {selectedContrato.contratante}
+              </Typography>
+              <Typography>Início: {selectedContrato.dataInicio}</Typography>
+              <Typography>Fim: {selectedContrato.dataFim}</Typography>
+              <Typography>
+                Tipo de Contrato: {selectedContrato.tipoContrato}
+              </Typography>
+              <Typography>
+                Descrição: Lorem ipsum dolor sit amet consectetur adipisicing
+                elit. Porro nulla perspiciatis maxime eaque, id laboriosam
+                eveniet veritatis maiores! Doloribus sunt corrupti facere rem
+                ipsum necessitatibus vero molestiae, perspiciatis nam
+                exercitationem. Reprehenderit eos illo ipsa debitis architecto!
+                Nesciunt, iure? Possimus magni aperiam accusamus provident iste
+                natus illo nobis voluptate repellat voluptatibus!
+              </Typography>
+              <Typography>Valor: R$ 5000,00</Typography>
+              {/* Adicione mais informações conforme necessário */}
+            </>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} color="primary">
+            Fechar
+          </Button>
+        </DialogActions>
+      </Dialog>
     </StyledBox>
   );
 }

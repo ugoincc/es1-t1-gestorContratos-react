@@ -5,6 +5,7 @@ import DashboardIcon from "@mui/icons-material/Dashboard";
 import FindInPageIcon from "@mui/icons-material/FindInPage";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import LogoutIcon from "@mui/icons-material/Logout";
+import TocIcon from "@mui/icons-material/Toc";
 
 export const SidebarData = [
   {
@@ -23,7 +24,7 @@ export const SidebarData = [
     link: "/dashboard",
   },
   {
-    title: "Contratos",
+    title: "Mapa",
     icon: <FindInPageIcon />,
     link: "/contratos",
   },
@@ -31,6 +32,11 @@ export const SidebarData = [
     title: "Relatórios",
     icon: <AssessmentIcon />,
     link: "/gerarRelatorio",
+  },
+  {
+    title: "Contratos",
+    icon: <TocIcon />,
+    link: "/tabelaContratos",
   },
   {
     title: "Logout",

@@ -55,8 +55,15 @@ export default function SearchAppBar({ pagename }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
+        sx={{
+          backgroundColor: "#2f4050",
+          borderRadius: 1,
+          width: "85vw",
+          height: 64,
+          justifyContent: "center",
+          padding: 1,
+        }}
         position="static"
-        sx={{ backgroundColor: "#293846", borderRadius: 1 }}
       >
         <Toolbar>
           <IconButton
@@ -64,7 +71,6 @@ export default function SearchAppBar({ pagename }) {
             edge="start"
             color="inherit"
             aria-label="open drawer"
-            sx={{ mr: 2 }}
           >
             <MenuIcon />
           </IconButton>
