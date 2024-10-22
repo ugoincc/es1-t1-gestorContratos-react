@@ -1,17 +1,20 @@
-import React from "react";
-import DenseAppBar from "../components/MUI/DenseAppBar";
-import Map from "../components/Map";
+import * as React from "react";
 
 function DashboardContratos() {
   return (
     <div className="container">
-      <div className="contratos-content">
-        <DenseAppBar pagename="Dashboard" />
-      </div>
-      <div className="dashboard-content-lower">
-        <h1>teste</h1>
-        <div>
-          <h1>Resumo de Contratos</h1>
+      <div className="grid">
+        <div className="grid-item">
+          <p>Elemento</p>
+        </div>
+        <div className="grid-item">
+          <p>Elemento</p>
+        </div>
+        <div className="grid-item">
+          <p>Elemento</p>
+        </div>
+        <div className="grid-item">
+          <p>Elemento</p>
         </div>
       </div>
     </div>

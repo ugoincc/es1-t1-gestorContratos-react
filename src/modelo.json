@@ -1,0 +1,72 @@
+{
+  "contracts": [
+    {
+      "id": 1,
+      "objeto": "Carlos Pereira",
+      "entregasServicos": "Instalacao de modem",
+      "dataInicio": "10/10/2023",
+      "dataFim": "10/10/2024",
+      "valorContratado": "5000",
+      "formaPagamento": "Credito",
+      "statusExecucao": "30%",
+      "contratante": "Empresa DEF",
+      "tipoContrato": "Freelancer",
+      "representante_legal": "Fulano A",
+      "gestorContrato": "Gestor XY",
+      "icone": "c",
+      "cordx": -22.970722,
+      "cordy": -43.182365
+    },
+    {
+      "id": 2,
+      "objeto": "Mariana Lopes",
+      "entregasServicos": "Consultoria em TI",
+      "dataInicio": "05/09/2023",
+      "dataFim": "05/12/2023",
+      "valorContratado": "10000",
+      "formaPagamento": "Transferência Bancária",
+      "statusExecucao": "50%",
+      "contratante": "Empresa GHI",
+      "tipoContrato": "Prestação de Serviços",
+      "representante_legal": "Ciclano B",
+      "gestorContrato": "Gestor ZZ",
+      "icone": "d",
+      "cordx": -23.55052,
+      "cordy": -46.633308
+    },
+    {
+      "id": 3,
+      "objeto": "Rafael Souza",
+      "entregasServicos": "Desenvolvimento Web",
+      "dataInicio": "01/08/2023",
+      "dataFim": "01/08/2024",
+      "valorContratado": "12000",
+      "formaPagamento": "Boleto",
+      "statusExecucao": "70%",
+      "contratante": "Empresa JKL",
+      "tipoContrato": "Contrato de Parceria",
+      "representante_legal": "Beltrano C",
+      "gestorContrato": "Gestor YX",
+      "icone": "e",
+      "cordx": -19.916681,
+      "cordy": -43.934493
+    },
+    {
+      "id": 4,
+      "objeto": "Fernanda Alves",
+      "entregasServicos": "Manutenção de Equipamentos",
+      "dataInicio": "15/07/2023",
+      "dataFim": "15/01/2024",
+      "valorContratado": "8000",
+      "formaPagamento": "Pix",
+      "statusExecucao": "40%",
+      "contratante": "Empresa MNO",
+      "tipoContrato": "Contrato de Manutenção",
+      "representante_legal": "Fulano B",
+      "gestorContrato": "Gestor YZ",
+      "icone": "f",
+      "cordx": -15.7801,
+      "cordy": -47.9292
+    }
+  ]
+}

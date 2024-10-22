@@ -67,7 +67,7 @@ export default function ContractCard({ contratos }) {
           >
             <Avatar
               src={contrato.icone}
-              alt={`${contrato.nome} icon`}
+              alt={`${contrato.objeto} icon`}
               sx={{
                 width: 56,
                 height: 56,
@@ -76,7 +76,7 @@ export default function ContractCard({ contratos }) {
             <Box>
               <CardContent>
                 <Typography variant="h6" component="div">
-                  {contrato.nome}
+                  {contrato.objeto}
                 </Typography>
                 <Typography color="text.secondary">
                   Contratante: {contrato.contratante}
@@ -96,33 +96,68 @@ export default function ContractCard({ contratos }) {
         ))}
 
         <Dialog open={open} onClose={handleClose} fullWidth>
-          <DialogTitle>Detalhes do Contrato</DialogTitle>
+          <DialogTitle variant="h4">Detalhes do Contrato</DialogTitle>
           <DialogContent>
             {selectedContrato && (
               <>
-                <Typography variant="h6">
-                  Nome: {selectedContrato.nome}
-                </Typography>
-                <Typography>
-                  Contratante: {selectedContrato.contratante}
-                </Typography>
-                <Typography>Início: {selectedContrato.dataInicio}</Typography>
-                <Typography>Fim: {selectedContrato.dataFim}</Typography>
-                <Typography>
-                  Tipo de Contrato: {selectedContrato.tipoContrato}
-                </Typography>
-                <Typography>
-                  Descrição: Lorem ipsum dolor sit amet consectetur adipisicing
-                  elit. Porro nulla perspiciatis maxime eaque, id laboriosam
-                  eveniet veritatis maiores! Doloribus sunt corrupti facere rem
-                  ipsum necessitatibus vero molestiae, perspiciatis nam
-                  exercitationem. Reprehenderit eos illo ipsa debitis
-                  architecto! Nesciunt, iure? Possimus magni aperiam accusamus
-                  provident iste natus illo nobis voluptate repellat
-                  voluptatibus!
-                </Typography>
-                <Typography>Valor: R$ 5000,00</Typography>
-                {/* Adicione mais informações conforme necessário */}
+                <Box
+                  sx={{
+                    p: 3,
+                    border: "1px solid #ccc",
+                    borderRadius: "8px",
+                    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    backgroundColor: "#f9f9f9",
+                    mb: 2,
+                  }}
+                >
+                  <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
+                    Nome: {selectedContrato.objeto}
+                  </Typography>
+                  <Typography sx={{ mb: 1 }}>
+                    <strong>Entrega / Serviço:</strong>{" "}
+                    {selectedContrato.entregasServicos}
+                  </Typography>
+                  <Typography sx={{ mb: 1 }}>
+                    <strong>Contratante:</strong> {selectedContrato.contratante}
+                  </Typography>
+                  <Typography sx={{ mb: 1 }}>
+                    <strong>Início:</strong> {selectedContrato.dataInicio} -{" "}
+                    <strong>Fim:</strong> {selectedContrato.dataFim}
+                  </Typography>
+                  <Typography sx={{ mb: 1 }}>
+                    <strong>Tipo de Contrato:</strong>{" "}
+                    {selectedContrato.tipoContrato}
+                  </Typography>
+                  <Typography sx={{ mb: 1 }}>
+                    <strong>Valor:</strong> R$:{" "}
+                    {selectedContrato.valorContratado}
+                  </Typography>
+                  <Typography sx={{ mb: 1 }}>
+                    <strong>Pagamento:</strong>{" "}
+                    {selectedContrato.formaPagamento}
+                  </Typography>
+                  <Typography sx={{ mb: 1 }}>
+                    <strong>Andamento:</strong>{" "}
+                    {selectedContrato.statusExecucao}
+                  </Typography>
+                  <Typography sx={{ mb: 1 }}>
+                    <strong>Gestor:</strong> {selectedContrato.gestorContrato}
+                  </Typography>
+                  <Typography sx={{ mb: 2 }}>
+                    <strong>Representante Legal:</strong>{" "}
+                    {selectedContrato.representante_legal}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "#555" }}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Porro nulla perspiciatis maxime eaque, id laboriosam eveniet
+                    veritatis maiores! Doloribus sunt corrupti facere rem ipsum
+                    necessitatibus vero molestiae, perspiciatis nam
+                    exercitationem. Reprehenderit eos illo ipsa debitis
+                    architecto! Nesciunt, iure? Possimus magni aperiam accusamus
+                    provident iste natus illo nobis voluptate repellat
+                    voluptatibus!
+                  </Typography>
+                </Box>
               </>
             )}
           </DialogContent>

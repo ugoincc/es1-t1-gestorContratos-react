@@ -3,6 +3,8 @@ import MarkerClusterGroup from "react-leaflet-cluster";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./compStyles/map.css";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 function SetViewOnClick({ coordenadas, zoom }) {
   const map = useMap();
@@ -43,12 +45,33 @@ function Map({ contratos, coordenadas }) {
         {contratosArray.map((contrato, index) => (
           <Marker key={index} position={[contrato.cordx, contrato.cordy]}>
             <Popup>
-              <div>
-                <h3>{contrato.nome}</h3>
-                <p>{contrato.contratante}</p>
-                <p>{contrato.tipoContrato}</p>
-                <p>Progresso: {contrato.progresso}</p>
-              </div>
+              <Box
+                sx={{
+                  p: 3,
+                  border: "1px solid #ddd",
+                  borderRadius: "8px",
+                  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+                  backgroundColor: "#fafafa",
+                  mb: 2,
+                }}
+              >
+                <Typography variant="h5" sx={{ fontWeight: "bold", mb: 2 }}>
+                  {contrato.objeto}
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 1 }}>
+                  <strong>Entrega / Serviço:</strong>{" "}
+                  {contrato.entregasServicos}
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 1 }}>
+                  <strong>Contratante:</strong> {contrato.contratante}
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 1 }}>
+                  <strong>Tipo de Contrato:</strong> {contrato.tipoContrato}
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 1 }}>
+                  <strong>Progresso:</strong> {contrato.statusExecucao}
+                </Typography>
+              </Box>
             </Popup>
           </Marker>
         ))}
