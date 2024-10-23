@@ -18,7 +18,7 @@ const columns = [
   { field: "dataInicio", headerName: "Data de Início", width: 130 },
   { field: "dataFim", headerName: "Data de Fim", width: 130 },
   { field: "tipoContrato", headerName: "Tipo de Contrato", width: 220 },
-  { field: "statusExecucao", headerName: "Progresso", width: 120 },
+  { field: "statusExecucao", headerName: "Progresso (%)", width: 120 },
   { field: "gestorContrato", headerName: "Gestor", width: 120 },
   { field: "representante_legal", headerName: "Representante", width: 120 },
 ];
@@ -68,7 +68,7 @@ export default function DataTable({ rows }) {
                 }}
               >
                 <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
-                  Nome: {selectedContrato.objeto}
+                  Objeto: {selectedContrato.objeto}
                 </Typography>
                 <Typography sx={{ mb: 1 }}>
                   <strong>Entrega / Serviço:</strong>{" "}

@@ -111,7 +111,7 @@ export default function ContractCard({ contratos }) {
                   }}
                 >
                   <Typography variant="h6" sx={{ fontWeight: "bold", mb: 2 }}>
-                    Nome: {selectedContrato.objeto}
+                    Objeto: {selectedContrato.objeto}
                   </Typography>
                   <Typography sx={{ mb: 1 }}>
                     <strong>Entrega / Serviço:</strong>{" "}

@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
+import axios from "axios";
+import { useState } from "react";
 
 function CriarContrato() {
   const navigate = useNavigate();
@@ -9,81 +11,114 @@ function CriarContrato() {
     navigate(path);
   };
 
+  const [formData, setFormData] = useState({
+    objeto: "",
+    contratante: "",
+    dataInicio: "",
+    dataFim: "",
+    tipoContrato: "",
+    valorContratado: "",
+    formaPagamento: "",
+    statusExecucao: "",
+    gestorContrato: "",
+    representante_legal: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/contracts",
+        formData
+      );
+      console.log("Contrato inserido com sucesso!", response.data);
+    } catch (error) {
+      console.error("Erro ao inserir contrato: ", error);
+    }
+  };
+
   return (
     <div className="container">
-      <h1>Novo Contrato</h1>
-      <form className="form-grid">
-        <div className="form-column">
-          <label htmlFor="titulo">Título do Contrato</label>
-          <input
-            type="text"
-            id="titulo"
-            className="titulo"
-            placeholder="Digite o título do contrato"
-          />
-
-          <label htmlFor="partes">Partes Envolvidas</label>
-          <input
-            type="text"
-            id="partes"
-            className="partes"
-            placeholder="João Silva, Maria Souza"
-          />
-
-          <label htmlFor="data-inicio">Data de Início</label>
-          <input type="date" id="data-inicio" className="data" />
-
-          <label htmlFor="data-fim">Data de Fim</label>
-          <input type="date" id="data-fim" className="data" />
-
-          <label htmlFor="tipo">Tipo de Contrato</label>
-          <select id="tipo" className="tipo">
-            <option value="compra">Compra</option>
-            <option value="venda">Venda</option>
-            <option value="locacao">Locação</option>
-            <option value="outro">Outro</option>
-          </select>
-        </div>
-
-        <div className="form-column">
-          <label htmlFor="termos">Descrição do Contrato</label>
-          <textarea
-            id="termos"
-            className="termos"
-            placeholder="Digite a descrição aqui."
-          ></textarea>
-
-          <label htmlFor="pagamento">Estrutura de Pagamento</label>
-          <select id="pagamento" className="pagamento">
-            <option value="unico">Único</option>
-            <option value="parcelado">Parcelado</option>
-            <option value="hora">Por Hora</option>
-            <option value="outro">Outro</option>
-          </select>
-
-          <label htmlFor="moeda">Moeda</label>
-          <select id="moeda" className="moeda">
-            <option value="usd">USD</option>
-            <option value="eur">EUR</option>
-            <option value="gbp">GBP</option>
-            <option value="outro">Outro</option>
-          </select>
-
-          <label htmlFor="valor">Valor</label>
-          <input
-            type="number"
-            id="valor"
-            className="valor"
-            placeholder="Digite o valor"
-          />
-
-          <label htmlFor="anexos">Anexos de Documentos</label>
-          <input type="file" id="anexos" className="anexos" multiple />
-        </div>
+      {" "}
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="objeto"
+          placeholder="Nome do contrato"
+          value={formData.objeto}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="contratante"
+          placeholder="Contratante"
+          value={formData.contratante}
+          onChange={handleChange}
+        />
+        <input
+          type="date"
+          name="dataInicio"
+          value={formData.dataInicio}
+          onChange={handleChange}
+        />
+        <input
+          type="date"
+          name="dataFim"
+          value={formData.dataFim}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="tipoContrato"
+          placeholder="Tipo de Contrato"
+          value={formData.tipoContrato}
+          onChange={handleChange}
+        />
+        <input
+          type="number"
+          name="valorContratado"
+          placeholder="Valor Contratado"
+          value={formData.valorContratado}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="formaPagamento"
+          placeholder="Forma de Pagamento"
+          value={formData.formaPagamento}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="statusExecucao"
+          placeholder="Status de Execução"
+          value={formData.statusExecucao}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="gestorContrato"
+          placeholder="Gestor do Contrato"
+          value={formData.gestorContrato}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="representante_legal"
+          placeholder="Representante Legal"
+          value={formData.representante_legal}
+          onChange={handleChange}
+        />
+        <button type="submit">Adicionar Contrato</button>
       </form>
-      <button onClick={() => handleNavigation("/contratos")} className="button">
-        Voltar
-      </button>
     </div>
   );
 }

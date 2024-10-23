@@ -140,20 +140,3 @@ textarea {
 .contratosCard {
   width: 100;
 }
-
-/*Dashboard */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 300px);
-  grid-template-rows: repeat(2, 200px);
-  gap: 10px;
-}
-
-.grid-item {
-  background-color: #f0f0f0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid #ccc;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-}

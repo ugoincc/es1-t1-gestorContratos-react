@@ -1,7 +1,7 @@
 {
   "contracts": [
     {
-      "id": 1,
+      "id": "1",
       "objeto": "Escola do Bairro",
       "entregasServicos": "Instalacao de modem",
       "dataInicio": "10/10/2023",
@@ -18,7 +18,7 @@
       "cordy": -43.182365
     },
     {
-      "id": 2,
+      "id": "2",
       "objeto": "Casa de Fulano",
       "entregasServicos": "Consultoria em TI",
       "dataInicio": "05/09/2023",
@@ -35,7 +35,7 @@
       "cordy": -46.633308
     },
     {
-      "id": 3,
+      "id": "3",
       "objeto": "Mercado Mercadão",
       "entregasServicos": "Desenvolvimento Web",
       "dataInicio": "01/08/2023",
@@ -52,7 +52,7 @@
       "cordy": -43.934493
     },
     {
-      "id": 4,
+      "id": "4",
       "objeto": "Farmacia da Esquina",
       "entregasServicos": "Manutenção de Equipamentos",
       "dataInicio": "15/07/2023",
