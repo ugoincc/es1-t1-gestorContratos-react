@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
 import axios from "axios";
 import { useState } from "react";
+import Button from "@mui/material/Button";
+import DenseAppBar from "../components/MUI/DenseAppBar";
 
 function CriarContrato() {
   const navigate = useNavigate();
@@ -13,15 +15,19 @@ function CriarContrato() {
 
   const [formData, setFormData] = useState({
     objeto: "",
-    contratante: "",
+    entregasServicos: "",
     dataInicio: "",
     dataFim: "",
-    tipoContrato: "",
     valorContratado: "",
     formaPagamento: "",
     statusExecucao: "",
-    gestorContrato: "",
+    contratante: "",
+    tipoContrato: "",
     representante_legal: "",
+    gestorContrato: "",
+    icone: "",
+    cordx: "",
+    cordy: "",
   });
 
   const handleChange = (e) => {
@@ -47,20 +53,20 @@ function CriarContrato() {
 
   return (
     <div className="container">
-      {" "}
+      <DenseAppBar pagename="Novo Contrato" />{" "}
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           name="objeto"
-          placeholder="Nome do contrato"
+          placeholder="Objeto do contrato"
           value={formData.objeto}
           onChange={handleChange}
         />
         <input
           type="text"
-          name="contratante"
-          placeholder="Contratante"
-          value={formData.contratante}
+          name="entregasServicos"
+          placeholder="Entrega de Serviços"
+          value={formData.entregasServicos}
           onChange={handleChange}
         />
         <input
@@ -73,13 +79,6 @@ function CriarContrato() {
           type="date"
           name="dataFim"
           value={formData.dataFim}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          name="tipoContrato"
-          placeholder="Tipo de Contrato"
-          value={formData.tipoContrato}
           onChange={handleChange}
         />
         <input
@@ -105,9 +104,16 @@ function CriarContrato() {
         />
         <input
           type="text"
-          name="gestorContrato"
-          placeholder="Gestor do Contrato"
-          value={formData.gestorContrato}
+          name="contratante"
+          placeholder="Contratante"
+          value={formData.contratante}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="tipoContrato"
+          placeholder="Tipo de Contrato"
+          value={formData.tipoContrato}
           onChange={handleChange}
         />
         <input
@@ -117,7 +123,16 @@ function CriarContrato() {
           value={formData.representante_legal}
           onChange={handleChange}
         />
-        <button type="submit">Adicionar Contrato</button>
+        <input
+          type="text"
+          name="gestorContrato"
+          placeholder="Gestor do Contrato"
+          value={formData.gestorContrato}
+          onChange={handleChange}
+        />
+        <Button type="submit" variant="contained">
+          Adicionar Contrato
+        </Button>
       </form>
     </div>
   );
