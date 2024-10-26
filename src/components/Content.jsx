@@ -14,7 +14,7 @@ const Content = () => {
     <div className="content">
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/home" element={<Home />} />
+        <Route path="/home" element={<Contratos />} />
         <Route path="/gerarRelatorio" element={<GerarRelatorio />} />
         <Route path="/criarContrato" element={<CriarContrato />} />
         <Route path="/eleTestes" element={<Elements />} />

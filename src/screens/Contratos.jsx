@@ -43,7 +43,6 @@ function Contratos() {
           </div>
         </div>
       </div>
-      <AddButton />
     </>
   );
 }

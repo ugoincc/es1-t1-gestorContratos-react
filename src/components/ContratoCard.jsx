@@ -61,7 +61,7 @@ export default function ContractCard({ contratos }) {
               margin: 1,
               alignItems: "center",
               cursor: "pointer",
-              width: "100%",
+              width: "22vw",
             }}
             onClick={() => handleOpen(contrato)}
           >
