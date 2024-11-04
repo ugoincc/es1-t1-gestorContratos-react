@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../styles/styles.css";
-import AddButton from "../components/MUI/AddButton";
 import ContractCard from "../components/ContratoCard";
 import SearchAppBar from "../components/MUI/SearchAppBar";
 
@@ -9,7 +8,7 @@ function Contratos() {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:5000/contracts")
+    fetch("http://localhost:5000/contracts/")
       .then((response) => response.json())
       .then((data) => setContracts(data))
       .catch((error) => console.error("Erro ao buscar contratos:", error));

@@ -118,6 +118,23 @@
       "icone": "",
       "cordx": "",
       "cordy": ""
+    },
+    {
+      "id": "8768",
+      "objeto": "123",
+      "entregasServicos": "elele",
+      "dataInicio": "2024-11-04",
+      "dataFim": "2024-11-06",
+      "valorContratado": 3000,
+      "formaPagamento": "Débito",
+      "statusExecucao": "0",
+      "contratante": "eu",
+      "tipoContrato": "Prestação de Serviços",
+      "representante_legal": "diogo",
+      "gestorContrato": "mamae",
+      "icone": "",
+      "cordx": "",
+      "cordy": ""
     }
   ]
 }

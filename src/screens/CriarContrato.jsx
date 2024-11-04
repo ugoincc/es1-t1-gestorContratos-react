@@ -5,6 +5,7 @@ import axios from "axios";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import DenseAppBar from "../components/MUI/DenseAppBar";
+import { styled } from "@mui/material/styles";
 import Input from "@mui/material/Input";
 import InputLabel from "@mui/material/InputLabel";
 import InputAdornment from "@mui/material/InputAdornment";
@@ -12,6 +13,11 @@ import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
 import { Typography } from "@mui/material";
+import SearchAppBar from "../components/MUI/SearchAppBar";
+
+const CustomAppBar = styled(DenseAppBar)({
+  flexGrow: 0,
+});
 
 function CriarContrato() {
   const navigate = useNavigate();
@@ -27,7 +33,7 @@ function CriarContrato() {
     dataFim: "",
     valorContratado: "",
     formaPagamento: "",
-    statusExecucao: 0,
+    statusExecucao: "0",
     contratante: "",
     tipoContrato: "",
     representante_legal: "",
@@ -88,9 +94,10 @@ function CriarContrato() {
   ];
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value,
+      [name]: name === "valorContratado" ? Number(value) : value,
     });
   };
 
@@ -110,8 +117,8 @@ function CriarContrato() {
 
   return (
     <div className="container">
-      <DenseAppBar pagename="Novo Contrato" />{" "}
-      <form onSubmit={handleSubmit} id="newcontract">
+      <CustomAppBar pagename="Novo Contrato" />
+      <form onSubmit={handleSubmit} id="contract-form">
         <div
           className="contDetails"
           style={{
@@ -119,6 +126,7 @@ function CriarContrato() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            margin: "20px",
           }}
         >
           <Typography variant="h6">Detalhes do Contrato</Typography>
@@ -132,6 +140,7 @@ function CriarContrato() {
             name="tipoContrato"
             value={formData.tipoContrato}
             onChange={handleChange}
+            style={{ minWidth: "300px" }}
           >
             {tiposContrato.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -162,6 +171,17 @@ function CriarContrato() {
             value={formData.entregasServicos}
             onChange={handleChange}
           />
+        </div>
+        <div
+          className="partesEnvolvidas"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "20px",
+          }}
+        >
           <Typography variant="h6">Partes Envolvidas</Typography>
 
           <TextField
@@ -197,7 +217,7 @@ function CriarContrato() {
           />
         </div>
 
-        <div className="dateandpay">
+        <div className="dateandpay" style={{ margin: "20px" }}>
           <Typography variant="h6">Pagamento</Typography>
           <div className="payment">
             <FormControl variant="outlined" sx={{ width: "50" }}>
@@ -217,7 +237,7 @@ function CriarContrato() {
               />
             </FormControl>
             <TextField
-              sx={{ width: "50%" }}
+              sx={{ width: "100%" }}
               id="outlined-select-currency"
               select
               required

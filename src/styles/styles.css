@@ -93,11 +93,6 @@ body {
   width: 100vw;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
-
 label {
   margin: 5px;
   font-weight: bold;
@@ -139,4 +134,22 @@ textarea {
 
 .contratosCard {
   width: 100;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column !important; /* ou column, conforme necessário */
+}
+
+#contract-form {
+  max-height: 50vh;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: row !important;
+}
+
+.noFlexGrow {
+  flex-grow: 0;
+  -webkit-flex-grow: 0;
 }
