@@ -48,7 +48,11 @@ export default function ContractCard({ contratos }) {
 
   return (
     <>
-      <Map contratos={contratos} coordenadas={coordenadas} />
+      <Map
+        contratos={contratos}
+        coordenadas={coordenadas}
+        showDraggable={false}
+      />
       <StyledBox>
         {contratos.map((contrato, index) => (
           <Card

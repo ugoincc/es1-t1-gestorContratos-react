@@ -148,8 +148,3 @@ textarea {
   display: flex;
   flex-direction: row !important;
 }
-
-.noFlexGrow {
-  flex-grow: 0;
-  -webkit-flex-grow: 0;
-}

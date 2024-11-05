@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
 import axios from "axios";
-import { useState } from "react";
 import DenseAppBar from "../components/MUI/DenseAppBar";
 import { styled } from "@mui/material/styles";
 import Input from "@mui/material/Input";
@@ -21,6 +20,7 @@ import {
   DialogTitle,
   Button,
 } from "@mui/material";
+import Map from "../components/Map";
 
 const CustomAppBar = styled(DenseAppBar)({
   flexGrow: 0,
@@ -119,7 +119,7 @@ function CriarContrato() {
     });
   };
 
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleClose = () => {
     setOpen(false);
@@ -168,6 +168,16 @@ function CriarContrato() {
       console.error("Erro ao inserir contrato: ", error);
     }
   };
+
+  const [contratos, setContracts] = React.useState([]);
+  const [coordenadas, setCoordenadas] = React.useState(null);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/contracts/")
+      .then((response) => response.json())
+      .then((data) => setContracts(data))
+      .catch((error) => console.error("Erro ao buscar contratos:", error));
+  }, []);
 
   return (
     <div className="container">
@@ -233,7 +243,10 @@ function CriarContrato() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            margin: "20px",
+            marginBottom: "20px",
+            marginTop: "20px",
+            marginLeft: "80px",
+            marginRight: "80px",
           }}
         >
           <Typography variant="h6">Partes Envolvidas</Typography>
@@ -358,6 +371,11 @@ function CriarContrato() {
           </Dialog>
         </div>
       </form>
+      <Map
+        contratos={contratos}
+        coordenadas={coordenadas}
+        showDraggable={true}
+      />
     </div>
   );
 }

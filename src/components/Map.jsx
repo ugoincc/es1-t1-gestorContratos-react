@@ -1,10 +1,46 @@
-import React from "react";
+import React, {
+  useState,
+  useEffect,
+  useMemo,
+  useRef,
+  useCallback,
+} from "react";
 import MarkerClusterGroup from "react-leaflet-cluster";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import "./compStyles/map.css";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+
+const center = {
+  lat: -25.5146897,
+  lng: -54.5560844,
+};
+
+function DraggableMarker() {
+  const [position, setPosition] = useState(center);
+  const markerRef = useRef(null);
+  const eventHandlers = useMemo(
+    () => ({
+      dragend() {
+        const marker = markerRef.current;
+        if (marker != null) {
+          setPosition(marker.getLatLng());
+        }
+      },
+    }),
+    []
+  );
+
+  return (
+    <Marker
+      draggable={true}
+      eventHandlers={eventHandlers}
+      position={position}
+      ref={markerRef}
+    ></Marker>
+  );
+}
 
 function SetViewOnClick({ coordenadas, zoom }) {
   const map = useMap();
@@ -14,7 +50,7 @@ function SetViewOnClick({ coordenadas, zoom }) {
   return null;
 }
 
-function Map({ contratos, coordenadas }) {
+function Map({ contratos, coordenadas, showDraggable }) {
   const defaultFocus = [-25.5185323, -54.5467007];
   const defaultZoom = 13;
 
@@ -40,6 +76,8 @@ function Map({ contratos, coordenadas }) {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenstreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+
+      {showDraggable ? <DraggableMarker /> : null}
 
       <MarkerClusterGroup>
         {contratosArray.map((contrato, index) => (
