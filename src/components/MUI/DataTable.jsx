@@ -46,7 +46,7 @@ export default function DataTable({ rows }) {
           rows={rows}
           columns={columns}
           initialState={{ pagination: { paginationModel } }}
-          pageSizeOptions={[10, 20]}
+          pageSizeOptions={[5, 10]}
           sx={{ border: 0 }}
           onRowClick={handleRowClick}
         />

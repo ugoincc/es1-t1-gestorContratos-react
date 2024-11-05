@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import "../styles/styles.css";
 import axios from "axios";
 import { useState } from "react";
-import Button from "@mui/material/Button";
 import DenseAppBar from "../components/MUI/DenseAppBar";
 import { styled } from "@mui/material/styles";
 import Input from "@mui/material/Input";
@@ -12,8 +11,16 @@ import InputAdornment from "@mui/material/InputAdornment";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import MenuItem from "@mui/material/MenuItem";
-import { Typography } from "@mui/material";
-import SearchAppBar from "../components/MUI/SearchAppBar";
+import { AlertTitle, Typography } from "@mui/material";
+import Alert from "@mui/material/Alert";
+import Dialog from "@mui/material/Dialog";
+import {
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Button,
+} from "@mui/material";
 
 const CustomAppBar = styled(DenseAppBar)({
   flexGrow: 0,
@@ -93,6 +100,31 @@ function CriarContrato() {
     },
   ];
 
+  const resetFormData = () => {
+    setFormData({
+      objeto: "",
+      entregasServicos: "",
+      dataInicio: "",
+      dataFim: "",
+      valorContratado: "",
+      formaPagamento: "",
+      statusExecucao: "0",
+      contratante: "",
+      tipoContrato: "",
+      representante_legal: "",
+      gestorContrato: "",
+      icone: "",
+      cordx: "",
+      cordy: "",
+    });
+  };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -104,12 +136,34 @@ function CriarContrato() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const isFormValid = () => {
+      return (
+        formData.objeto &&
+        formData.entregasServicos &&
+        formData.dataInicio &&
+        formData.dataFim &&
+        formData.valorContratado &&
+        formData.formaPagamento &&
+        formData.contratante &&
+        formData.representante_legal &&
+        formData.gestorContrato &&
+        formData.tipoContrato
+      );
+    };
+
+    if (!isFormValid()) {
+      alert("Por favor, preencha todos os campos obrigatórios!");
+      return;
+    }
+
     try {
       const response = await axios.post(
         "http://localhost:5000/contracts",
         formData
       );
       console.log("Contrato inserido com sucesso!", response.data);
+      setOpen(true);
+      resetFormData();
     } catch (error) {
       console.error("Erro ao inserir contrato: ", error);
     }
@@ -140,7 +194,7 @@ function CriarContrato() {
             name="tipoContrato"
             value={formData.tipoContrato}
             onChange={handleChange}
-            style={{ minWidth: "300px" }}
+            style={{ width: "100%" }}
           >
             {tiposContrato.map((option) => (
               <MenuItem key={option.value} value={option.value}>
@@ -220,7 +274,7 @@ function CriarContrato() {
         <div className="dateandpay" style={{ margin: "20px" }}>
           <Typography variant="h6">Pagamento</Typography>
           <div className="payment">
-            <FormControl variant="outlined" sx={{ width: "50" }}>
+            <FormControl variant="outlined" sx={{ width: "100%" }}>
               <InputLabel htmlFor="standard-adornment-amount"></InputLabel>
               <Input
                 id="standard-adornment-amount"
@@ -256,24 +310,52 @@ function CriarContrato() {
               ))}
             </TextField>
 
-            <div className="dates">
-              <input
-                type="date"
-                name="dataInicio"
-                value={formData.dataInicio}
-                onChange={handleChange}
-              />
-              <input
-                type="date"
-                name="dataFim"
-                value={formData.dataFim}
-                onChange={handleChange}
-              />
+            <div
+              className="dates"
+              style={{ display: "flex", flexDirection: "row" }}
+            >
+              <div>
+                <Typography>Data de inicio</Typography>
+                <input
+                  type="date"
+                  name="dataInicio"
+                  value={formData.dataInicio}
+                  onChange={handleChange}
+                />
+              </div>
+              <div>
+                <Typography>Data de fim</Typography>
+                <input
+                  type="date"
+                  name="dataFim"
+                  value={formData.dataFim}
+                  onChange={handleChange}
+                />
+              </div>
             </div>
           </div>
-          <Button type="submit" variant="contained" sx={{ maxHeight: "50px" }}>
+          <Button
+            variant="contained"
+            type="submit"
+            onClick={handleSubmit}
+            sx={{ maxHeight: "50px", width: "100%" }}
+          >
             Adicionar Contrato
           </Button>
+
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle>Sucesso</DialogTitle>
+            <DialogContent>
+              <DialogContentText>
+                Contrato inserido com sucesso!
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose} color="primary">
+                Ok
+              </Button>
+            </DialogActions>
+          </Dialog>
         </div>
       </form>
     </div>

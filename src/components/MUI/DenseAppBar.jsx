@@ -8,7 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 
 export default function DenseAppBar({ pagename }) {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{}}>
       <AppBar
         sx={{
           backgroundColor: "#2f4050",

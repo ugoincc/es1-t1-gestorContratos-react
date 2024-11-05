@@ -18,7 +18,7 @@ export default function AddButton() {
       sx={{
         position: "absolute",
         right: "50px",
-        bottom: "60px",
+        bottom: "40px",
         backgroundColor: "#2f4050",
       }}
       onClick={() => handleNavigation("/criarContrato")}

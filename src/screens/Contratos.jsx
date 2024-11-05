@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../styles/styles.css";
 import ContractCard from "../components/ContratoCard";
 import SearchAppBar from "../components/MUI/SearchAppBar";
+import AddButton from "../components/MUI/AddButton";
 
 function Contratos() {
   const [contracts, setContracts] = useState([]);
@@ -33,6 +34,7 @@ function Contratos() {
     <>
       <div className="container">
         <div className="contratos-content">
+          <AddButton />
           <SearchAppBar
             pagename={"Mapeamento de Contratos"}
             onSearchChange={handleSearchChange}
