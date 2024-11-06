@@ -119,6 +119,22 @@ function CriarContrato() {
     });
   };
 
+  {
+    /* Draggable Marker */
+  }
+  const [markerPos, setMarkerPos] = useState([-25.5146897, -54.5560844]);
+  const handleMarkerPositionChange = (newPosition) => {
+    setMarkerPos(newPosition);
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      cordx: newPosition[0],
+      cordy: newPosition[1],
+    }));
+  };
+
+  {
+    /* Dialog de confirmação */
+  }
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
@@ -283,7 +299,6 @@ function CriarContrato() {
             onChange={handleChange}
           />
         </div>
-
         <div className="dateandpay" style={{ margin: "20px" }}>
           <Typography variant="h6">Pagamento</Typography>
           <div className="payment">
@@ -295,7 +310,7 @@ function CriarContrato() {
                 required
                 margin="normal"
                 name="valorContratado"
-                placeholder="5000,00"
+                placeholder={markerPos}
                 value={formData.valorContratado}
                 onChange={handleChange}
                 startAdornment={
@@ -370,11 +385,14 @@ function CriarContrato() {
             </DialogActions>
           </Dialog>
         </div>
+        <p>Latitude: {formData.cordx}</p>
+        <p>Longitude: {formData.cordy}</p>
       </form>
       <Map
         contratos={contratos}
         coordenadas={coordenadas}
         showDraggable={true}
+        onPositionChange={handleMarkerPositionChange}
       />
     </div>
   );

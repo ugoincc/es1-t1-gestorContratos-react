@@ -17,7 +17,7 @@ const center = {
   lng: -54.5560844,
 };
 
-function DraggableMarker() {
+function DraggableMarker({ onPositionChange }) {
   const [position, setPosition] = useState(center);
   const markerRef = useRef(null);
   const eventHandlers = useMemo(
@@ -25,11 +25,14 @@ function DraggableMarker() {
       dragend() {
         const marker = markerRef.current;
         if (marker != null) {
-          setPosition(marker.getLatLng());
+          const latLng = marker.getLatLng();
+          const newPosition = [latLng.lat, latLng.lng];
+          setPosition(latLng);
+          onPositionChange(newPosition);
         }
       },
     }),
-    []
+    [onPositionChange]
   );
 
   return (
@@ -50,7 +53,7 @@ function SetViewOnClick({ coordenadas, zoom }) {
   return null;
 }
 
-function Map({ contratos, coordenadas, showDraggable }) {
+function Map({ contratos, coordenadas, showDraggable, onPositionChange }) {
   const defaultFocus = [-25.5185323, -54.5467007];
   const defaultZoom = 13;
 
@@ -77,7 +80,9 @@ function Map({ contratos, coordenadas, showDraggable }) {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
 
-      {showDraggable ? <DraggableMarker /> : null}
+      {showDraggable ? (
+        <DraggableMarker onPositionChange={onPositionChange} />
+      ) : null}
 
       <MarkerClusterGroup>
         {contratosArray.map((contrato, index) => (
