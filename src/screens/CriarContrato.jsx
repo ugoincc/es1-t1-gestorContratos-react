@@ -310,7 +310,7 @@ function CriarContrato() {
                 required
                 margin="normal"
                 name="valorContratado"
-                placeholder={markerPos}
+                placeholder="5000,00"
                 value={formData.valorContratado}
                 onChange={handleChange}
                 startAdornment={
@@ -385,8 +385,6 @@ function CriarContrato() {
             </DialogActions>
           </Dialog>
         </div>
-        <p>Latitude: {formData.cordx}</p>
-        <p>Longitude: {formData.cordy}</p>
       </form>
       <Map
         contratos={contratos}
